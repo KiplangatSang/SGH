@@ -1,0 +1,6 @@
+
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/stormsco/SGH
+    - /bin/cp -R * $DEPLOYPATH
