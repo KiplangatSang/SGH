@@ -79,7 +79,7 @@
 																																								<h3 class="post-subtitle">{!! $recomended->post_subtitle !!}</h3>
 
 																																								<div class="row d-flex justify-content-center">
-																																												@if ($recomended['post_top_image'])
+																																												@if ($recomended['post_top_image'] != null)
 																																																@foreach ($recomended->post_top_image as $image)
 																																																				<div class="col">
 																																																								<img src="{{ $image->post_top_image }}" alt="Capture Image"
