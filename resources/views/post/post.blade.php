@@ -69,14 +69,13 @@
                     <h3 class="text-info">Recommended for you</h3>
                     @foreach ($post['newposts'] as $recomended)
                     <!-- Post preview-->
-
+                    {{-- recomended --}}
                     <div class="post-preview">
                         <a href="/{{ $recomended->post_id }}">
                             <h4 class="post-title">{{ $recomended->post_title }}</h4>
                             <h6 class="post-subtitle">{!! $recomended->post_subtitle !!}</h6>
-
                             <div class="row d-flex justify-content-center">
-                                @if ($recomended['post_top_image'] != null )
+                                {{-- @if ($recomended['post_top_image'] != null )
                                 @if (count($recomended['post_top_image'] ) > 0)
                                 @foreach ($recomended->post_top_image as $image)
                                 <div class="col">
@@ -85,7 +84,7 @@
                                 </div>
                                 @endforeach
                                 @endif
-                                @endif
+                                @endif --}}
                             </div>
                             <h6 class="meta"> <small>
                                     Story by
