@@ -69,7 +69,7 @@ class ClientPostController extends Controller
         $post_top_image = json_decode($post['post']->post_top_image);
 
         $post['post_top_image'] = $post_top_image;
-        // dd($post['newposts']);
+         dd($post['newposts']);
 
 
         return view('post.post', compact('post'));
