@@ -74,12 +74,15 @@
                             <h4 class="post-title">{{ $recomended->post_title }}</h4>
                             <h6 class="post-subtitle">{!! $recomended->post_subtitle !!}</h6>
                             <div class="row d-flex justify-content-center">
-                                @if (($recomended['post_top_image'] ) )
+                                @if ($recomended['post_top_image'] )
+                                @if (!empty($recomended['post_top_image']))
                                 @foreach ($recomended->post_top_image as $image)
                                 <div class="col">
                                     <img src="{{ $image['post_top_image'] }}" alt="Capture Image" class="capture_image p-1 m-1">
                                 </div>
                                 @endforeach
+                                @endif
+
                                 @endif
                             </div>
                             <h6 class="meta"> <small>
