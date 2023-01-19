@@ -75,6 +75,7 @@ class PostController extends Controller
         $request->validate([
             'post_category' => 'required',
             'post_title' => 'required',
+            'post_subtitle' => 'required',
 
         ]);
 
@@ -182,7 +183,6 @@ class PostController extends Controller
         $user = User::where('id', auth()->user()->id)->first();
         $images = session('images');
         $top_images = session('image_title');
-        //dd( $images);
 
         $category = Categories::all();
 
@@ -253,7 +253,8 @@ class PostController extends Controller
         $post = Posts::where('id', $id)->first();
         $postsdata = array();
         $postsdata['post'] = $post;
-        $postsdata['comments '] = null;
+        $postsdata['comments'] = null;
+        $postsdata['likes']= null;
 
         // dd($postsdata);
 
@@ -310,13 +311,14 @@ class PostController extends Controller
         ]);
 
         $user = User::where('id', auth()->user()->id)->first();
-
-        // dd(session('image_title'));
+         
 
         try {
-            $post_id = Str::random(60);
-
-            $user->posts()->where('id', $id)->update(
+            $post_id = Posts::where('id',$id)->first()->post_id ?? Str::random(30);
+            
+            $user->posts()->where('id', $id)->updateOrCreate([
+                'post_id' =>$post_id,
+        ],
                 [
                     'post_body' => $request->post_body,
                     'post_top_image' => session('image_title'),

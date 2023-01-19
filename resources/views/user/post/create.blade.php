@@ -124,12 +124,12 @@
 
             </div>
             <div class="form-group">
-                <label class="text-white display-6" for="post_subtitle">What is the Title of your article</label>
+                <label class="text-white display-6" for="post_title">What is the Title of your article</label>
                 <h6 class="text-white"><small id="article_title_help" class="form-text text-light">This will be
                         visible to people who visit
                         your site</small></h6>
-                <input type="heading" name="post_subtitle" class="form-control @error('post_subtitle') is-invalid @enderror" id="post_subtitle" aria-describedby="emailHelp" placeholder="Enter the Title of your article" value="{{ old('post_subtitle') }}">
-                @error('post_subtitle')
+                <input type="heading" name="post_title" class="form-control @error('post_title') is-invalid @enderror" id="post_title" aria-describedby="emailHelp" placeholder="Enter the Title of your article" value="{{ old('post_title') }}">
+                @error('post_title')
                 <span class="invalid-feedback bg-white p-1" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -138,11 +138,11 @@
             </div>
 
             <div class="form-group">
-                <label class="text-white display-6" for="post_title">What is the Subtitle of your article</label>
+                <label class="text-white display-6" for="post_subtitle">What is the Subtitle of your article</label>
                 <h6 class="text-white"><small id="article_title_help" class="form-text text-light">This will be
                         visible below the title</small></h6>
-                <input type="heading" name="post_title" class="form-control @error('post_title') is-invalid @enderror" id="post_title" aria-describedby="emailHelp" placeholder="Enter the Title of your article" value="{{ old('post_title') }}">
-                @error('post_title')
+                <input type="heading" name="post_subtitle" class="form-control @error('post_subtitle') is-invalid @enderror" id="post_subtitle" aria-describedby="emailHelp" placeholder="Enter the subtitle of your article" value="{{ old('post_subtitle') }}">
+                @error('post_subtitle')
                 <span class="invalid-feedback bg-white p-1" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

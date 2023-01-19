@@ -54,7 +54,7 @@
 
                             <h3>Post Body Images</h3>
 
-                            @if (count($postdata['images']) > 0)
+                            @if ($postdata['images']!= null && count($postdata['images']) > 0)
                             @foreach ($postdata['images'] as $key => $image)
                             <div class="row m-1">
                                 <div class="col-md-2 icon m-1">

@@ -49,16 +49,15 @@ class ClientPostController extends Controller
      */
     public function show($post_id)
     {
-        //
-
-        // dd($post_id);
-
-        // $user = User::whereIn('id',auth()->user())->first();
-
         $post_data = Posts::where('post_id', $post_id)->first();
         $newposts = Posts::orderBy('created_at', 'DESC')->simplePaginate(7);
+        // $newposts = Posts::orderBy('created_at', 'DESC')->get();
+      
         foreach ($newposts as $post) {
+            if($post->post_top_image)
             $post->post_top_image = json_decode($post->post_top_image);
+            else
+            $post->post_top_image = null;
         }
 
         $data = array();
@@ -70,7 +69,9 @@ class ClientPostController extends Controller
         $post_top_image = json_decode($post['post']->post_top_image);
 
         $post['post_top_image'] = $post_top_image;
-        
+        // dd($post['newposts']);
+
+
         return view('post.post', compact('post'));
     }
 
