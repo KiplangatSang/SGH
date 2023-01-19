@@ -72,8 +72,8 @@
 
                     <div class="post-preview">
                         <a href="/{{ $recomended->post_id }}">
-                            <h2 class="post-title">{{ $recomended->post_title }}</h2>
-                            <h3 class="post-subtitle">{!! $recomended->post_subtitle !!}</h3>
+                            <h4 class="post-title">{{ $recomended->post_title }}</h4>
+                            <h6 class="post-subtitle">{!! $recomended->post_subtitle !!}</h6>
 
                             <div class="row d-flex justify-content-center">
                                 @if ($recomended['post_top_image'] != null )
