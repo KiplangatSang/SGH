@@ -122,10 +122,6 @@ class PostController extends Controller
 
     public function updateArticleDescription(Request $request, $post_id)
     {
-        // if($post_id)
-        // return $this->moveToArticleEditor($post_id);
-
-        //dd(Posts::where('post_id',$post_id)->first());
 
         $request->validate([
             'post_category' => 'required',
@@ -138,9 +134,7 @@ class PostController extends Controller
         // dd($user);
         $post_top_image = $user->postImages()->whereNotNull('post_top_image')
             ->take(2)
-            ->get('post_top_image');
-
-        // dd($post_top_image);
+            ->get('post_top_image') ?? null;
 
         try {
             // $post_id = Str::random(60);
