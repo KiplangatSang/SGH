@@ -96,7 +96,7 @@
 
             <div class="row">
 
-                <button type="submit" class="btn btn-success m-2">Update Article</button>
+                <button type="submit" class="btn btn-success m-2">Upload</button>
                 <a onclick="submitForm(@json($postdata['post']->id))" class="btn btn-success m-2">Preview
                     Article</a>
             </div>
