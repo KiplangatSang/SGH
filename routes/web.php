@@ -41,7 +41,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
@@ -54,8 +54,8 @@ Route::get('/articles/hidden', function () {
     return view('hidden');
 });
 
-Route::get('/users/posts/post/{post_id}',[ClientPostController::class, 'show']);
-Route::get('/{post_id}',[ClientPostController::class, 'show']);
+Route::get('/users/posts/post/{post_id}', [ClientPostController::class, 'show']);
+Route::get('/{post_id}', [ClientPostController::class, 'show']);
 
 Route::get('/articles/contact', function () {
     $request = new Request([
@@ -158,7 +158,7 @@ Route::post('/post/image/title/store/{post_id}', [PostImageController::class, 's
 
 //settings
 Route::get('/user/settings/index', [SettingController::class, 'index']);
-Route::get('firebase','FirebaseController@index');
+Route::get('firebase', 'FirebaseController@index');
 
 Route::post('/post/image/firebase', [PostImageController::class, 'uploadImageToFirebase']);
 
@@ -229,4 +229,3 @@ Route::get('/admin/account/suspend/show/{id}', [AccountSuspensionController::cla
 Route::get('/admin/account/suspend/edit/{id}', [AccountSuspensionController::class, 'edit']);
 Route::get('/admin/account/suspend/update/{id}', [AccountSuspensionController::class, 'update']);
 Route::get('/admin/account/suspend/delete/{id}', [AccountSuspensionController::class, 'destroy']);
-

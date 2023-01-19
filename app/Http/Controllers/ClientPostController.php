@@ -51,13 +51,13 @@ class ClientPostController extends Controller
     {
         //
 
-       // dd($post_id);
+        // dd($post_id);
 
-       // $user = User::whereIn('id',auth()->user())->first();
+        // $user = User::whereIn('id',auth()->user())->first();
 
-        $post_data = Posts::where('post_id',$post_id)->first();
-        $newposts = Posts::orderBy('created_at','DESC')->simplePaginate(7);
-        foreach( $newposts as $post){
+        $post_data = Posts::where('post_id', $post_id)->first();
+        $newposts = Posts::orderBy('created_at', 'DESC')->simplePaginate(7);
+        foreach ($newposts as $post) {
             $post->post_top_image = json_decode($post->post_top_image);
         }
 
@@ -65,17 +65,16 @@ class ClientPostController extends Controller
         $post['post'] = $post_data;
         $post['newposts'] = $newposts;
         $post_top_image = array();
-        if($post_top_image){
-
+        if ($post_top_image) {
         }
-        $post_top_image = json_decode( $post['post']->post_top_image);
-       // dd( $post_top_image);
-        $post['post_top_image'] =$post_top_image;
+        $post_top_image = json_decode($post['post']->post_top_image);
+        // dd( $post_top_image);
+        $post['post_top_image'] = $post_top_image;
 
 
-        //dd($newposts->first());
+        dd($post);
 
-        return view('post.post',compact('post'));
+        return view('post.post', compact('post'));
     }
 
     /**
