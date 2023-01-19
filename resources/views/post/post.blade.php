@@ -80,7 +80,7 @@
 
 																																								<div class="row d-flex justify-content-center">
 																																												@if ($recomended['post_top_image'] != null)
-																																												{{dd($image->post_top_image)}}
+																																												{{dd($recomended['post_top_image'])}}
 																																																@foreach ($recomended->post_top_image as $image)
 																																																				<div class="col">
 																																																					
