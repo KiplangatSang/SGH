@@ -79,8 +79,8 @@
 
                                 @foreach ($recomended->post_top_image as $image)
                                 <div class="col">
-                                    <p>{{ $image }}</p>
-                                    {{-- <img src="{{ $image }}" alt="Capture Image" class="capture_image p-1 m-1"> --}}
+                                    {{-- <p>{{ $image }}</p> --}}
+                                    <img src="{{ $image }}" alt="Capture Image" class="capture_image p-1 m-1">
                                 </div>
                                 @endforeach
                                 @endif
