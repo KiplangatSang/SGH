@@ -76,11 +76,12 @@
                             <div class="row d-flex justify-content-center">
                                 @if ($recomended['post_top_image'] )
                                 @if (!empty($recomended['post_top_image']))
-                                @foreach ($recomended->post_top_image as $image)
+                                <p>{{ @json($recomended['post_top_image']) }}</p>
+                                {{-- @foreach ($recomended->post_top_image as $image)
                                 <div class="col">
                                     <img src="{{ $image['post_top_image'] }}" alt="Capture Image" class="capture_image p-1 m-1">
                                 </div>
-                                @endforeach
+                                @endforeach --}}
                                 @endif
 
                                 @endif

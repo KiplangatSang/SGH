@@ -51,16 +51,15 @@ class ClientPostController extends Controller
     {
         $post_data = Posts::where('post_id', $post_id)->first();
         $newposts = Posts::orderBy('created_at', 'DESC')->simplePaginate(7);
-        // $newposts = Posts::orderBy('created_at', 'DESC')->get();
       
         foreach ($newposts as $post) {
-            if($post->post_top_image)
+            if($post->post_top_image )
             $post->post_top_image = json_decode($post->post_top_image);
             else
             $post->post_top_image = null;
+           
+            
         }
-
-        $data = array();
         $post['post'] = $post_data;
         $post['newposts'] = $newposts;
         $post_top_image = array();
