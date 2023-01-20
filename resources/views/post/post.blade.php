@@ -76,52 +76,52 @@
                             <div class="row d-flex justify-content-center">
                                 @if ($recomended['post_top_image'] )
                                 @if (!empty($recomended['post_top_image']))
-                                <p>{{ @json($recomended['post_top_image']) }}</p>
+                                <p>{{ json_encode($recomended['post_top_image']) }}</p>
                                 {{-- @foreach ($recomended->post_top_image as $image)
                                 <div class="col">
                                     <img src="{{ $image['post_top_image'] }}" alt="Capture Image" class="capture_image p-1 m-1">
-                                </div>
-                                @endforeach --}}
-                                @endif
-
-                                @endif
                             </div>
-                            <h6 class="meta"> <small>
-                                    Story by
-                                    <a href="#!" class="text-info">{{ $recomended->postable()->first()->name }}</a>
-                                    on
-                                    {{ $recomended->created_at->format('D M Y  H:II') }}</small>
-                            </h6>
-                        </a>
+                            @endforeach --}}
+                            @endif
 
+                            @endif
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    @endforeach
-                    @else
-                    <div class="jumbotron p-3">
-                        <h3 class="text-info">Refresh to get new updates</h3>
-                    </div>
-                    @endif
-
-                    <div class="mx-auto d-flex justify-content-center">
-                        {{ $data['posts']->links() }}
-
-                    </div>
-                    <br>
-                    <div class="col-md-2 col-xl-2 p-1">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5005358454303953" crossorigin="anonymous"></script>
-                        <!-- StormsAdd -->
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5005358454303953" data-ad-slot="8840350149" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-
-                        </script>
-                    </div>
+                    <h6 class="meta"> <small>
+                            Story by
+                            <a href="#!" class="text-info">{{ $recomended->postable()->first()->name }}</a>
+                            on
+                            {{ $recomended->created_at->format('D M Y  H:II') }}</small>
+                    </h6>
+                    </a>
 
                 </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                @endforeach
+                @else
+                <div class="jumbotron p-3">
+                    <h3 class="text-info">Refresh to get new updates</h3>
+                </div>
+                @endif
+
+                <div class="mx-auto d-flex justify-content-center">
+                    {{ $data['posts']->links() }}
+
+                </div>
+                <br>
+                <div class="col-md-2 col-xl-2 p-1">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5005358454303953" crossorigin="anonymous"></script>
+                    <!-- StormsAdd -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5005358454303953" data-ad-slot="8840350149" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+
+                    </script>
+                </div>
+
             </div>
         </div>
-    </article>
+</div>
+</article>
 </div>
 @endsection
