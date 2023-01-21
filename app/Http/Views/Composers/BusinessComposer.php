@@ -13,26 +13,17 @@ class BusinessComposer
 {
     public function compose(View $view)
     {
-        $posts = Posts::where('post_category', 'Business')->orderBy('created_at', 'DESC')->simplePaginate(20);
-        $recomended = Posts::where('post_category', 'Business')->inRandomOrder()->simplePaginate(7);;
+        $posts = Posts::where('post_category', 'Business')->orderBy('created_at', 'DESC')->with('postable')->simplePaginate(20);
+        $recomended = Posts::where('post_category', 'Business')->inRandomOrder()->with('postable')->simplePaginate(7);;
 
         foreach ($posts as $post) {
 
-            $post['artist'] = $post->postable()->first()->get(
-                'id',
-                'name',
-                'email'
-            );
-
+            $post['artist'] = $post->postable();
             $post->post_top_image = json_decode($post->post_top_image);
         }
         foreach ($recomended as $post) {
 
-            $post['artist'] = $post->postable()->first()->get(
-                'id',
-                'name',
-                'email'
-            );
+            $post['artist'] = $post->postable;
 
             $post->post_top_image = json_decode($post->post_top_image);
         }

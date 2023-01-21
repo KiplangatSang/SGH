@@ -13,7 +13,7 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         //
-        factory(Categories::class,10)
+        factory(Categories::class,1)
         ->create();
     }
 }

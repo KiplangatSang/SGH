@@ -3,11 +3,10 @@
 <div>
     <!-- Page Header-->
     <header class="masthead ">
-        <div class="container position-relative px-2 px-lg-3 ">
-            <div class="row gx-2 gx-lg-5 justify-content-center">
+        <div class="container position-relative  px-lg-3 ">
+            <div class="row  gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-xl-10 ">
                     <div class="row ">
-
                         <div class="d-flex justify-content-center m-2">
                             <h1>{{ $post['post']->post_title }}</h1>
                         </div>
@@ -44,13 +43,11 @@
             </div>
         </div>
     </header>
-
     <!-- Post Content-->
-    <article class="mb-2 bg-white mt-1">
+    <article class="mb-2 bg-white">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-
                     <p>{!! $post['post']->post_body !!}</p>
                     <p>
                         <small>Story writen by
@@ -60,9 +57,6 @@
                     </p>
                 </div>
                 <div class="col-md-2 col-lg-4 col-xl-3">
-
-
-
                     <hr>
                     @if (count($post['newposts']) > 1)
                     <h3 class="text-info">Recommended for you</h3>

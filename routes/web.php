@@ -1,5 +1,6 @@
 <?php
 
+use App\Articles\Categories;
 use App\Http\Controllers\Admin\Articles\ArticleController;
 use App\Http\Controllers\Admin\Articles\ArticleProcessingController;
 use App\Http\Controllers\Admin\Articles\PendingArticleController;
@@ -70,6 +71,7 @@ Route::get('/authors/signup', function () {
 });
 
 Route::get('/', function () {
+    Categories::all();
     return view('post.index');
 });
 

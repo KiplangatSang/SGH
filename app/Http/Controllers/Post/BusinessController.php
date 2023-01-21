@@ -15,6 +15,14 @@ class BusinessController extends Controller
     public function index()
     {
         //
+           $request = new Request([
+        'site' => "business",
+    ]);
+
+    $siteVisit = new SiteVisitController();
+    $siteVisit->store($request);
+
+    return view('post.business');
     }
 
     /**
