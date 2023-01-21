@@ -15,10 +15,9 @@
                         </div>
                         <div class="row d-flex justify-content-center mx-auto">
                             @if ($post['post_top_image'])
-                            {{-- {{dd($post['post_top_image'])}} --}}
                             @foreach ($post['post_top_image'] as $image)
-                            <div class="col d-flex justify-content-center">
-                                <img src="{{ $image }}" alt="Capture Image" class="capture_image p-1 m-1">
+                            <div class="col-md-6 col-xl d-flex justify-content-center m-1">
+                                <img src="{{ $image }}" alt="Capture Image" class="p-1 d-flex w-100 ">
                             </div>
                             @endforeach
                             @endif
