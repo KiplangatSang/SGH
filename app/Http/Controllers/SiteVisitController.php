@@ -37,7 +37,6 @@ class SiteVisitController extends Controller
     {
         //
         $dateVisited = now();
-        //dd( $dateVisited);
 
         SiteVisits::UpdateOrCreate(
             [

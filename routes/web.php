@@ -18,6 +18,12 @@ use App\SiteVisits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +36,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//email verification
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
+
+#The Email Verification Handler
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+ 
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//     $request->fulfill();
+
+//     return redirect('/home');
+// })->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+#Resending The Verification Email
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
+
+
 Route::get('/authors/signup', function () {
     return view('landingpage.index');
 });
@@ -41,7 +76,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(['auth', 'verified']);
 
 
 
@@ -58,13 +93,6 @@ Route::get('/users/posts/post/{post_id}', [ClientPostController::class, 'show'])
 Route::get('/{post_id}', [ClientPostController::class, 'show']);
 
 Route::get('/articles/contact', function () {
-    $request = new Request([
-        'site' => "contact",
-    ]);
-
-    $siteVisit = new SiteVisitController();
-    $siteVisit->store($request);
-
     return view('post.contact');
 });
 Route::get('/articles/tech', function () {

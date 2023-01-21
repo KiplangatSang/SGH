@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Articles;
+namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class BusinessController extends Controller
 {
-    //
     /**
      * Display a listing of the resource.
      *

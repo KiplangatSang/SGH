@@ -3,28 +3,7 @@
 				<div>
 
 								<!-- Page Header-->
-								<header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
-												<div class="container position-relative px-4 px-lg-5">
-																<div class="row gx-4 gx-lg-5 justify-content-center">
-																				<div class="col-md-10 col-lg-8 col-xl-7">
-																								<div class="col-md-2 col-xl-2 p-1">
-																												<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5005358454303953"
-																												                            crossorigin="anonymous"></script>
-																												<!-- StormsAdd -->
-																												<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5005358454303953"
-																																data-ad-slot="8840350149" data-ad-format="auto" data-full-width-responsive="true"></ins>
-																												<script>
-																												    (adsbygoogle = window.adsbygoogle || []).push({});
-																												</script>
-																								</div>
-																								<div class="page-heading">
-																												<h1>Contact Us</h1>
-																												<span class="subheading">Have questions? Reach out to us by leaving a message.</span>
-																								</div>
-																				</div>
-																</div>
-												</div>
-								</header>
+								@include('inc.posts_header')
 								<!-- Main Content-->
 								<main class="mb-4">
 												<div class="container px-4 px-lg-5">
@@ -42,30 +21,30 @@
 
 																																<div class="form-floating">
 																																				<input class="form-control" id="name" name="name" type="text"
-																																								placeholder="Enter your name..." data-sb-validations="required" />
+																																								placeholder="Enter your name..." data-sb-validations="required" required />
 																																				<label for="name">Name</label>
 																																				<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
 																																</div>
 																																<div class="form-floating">
 																																				<input class="form-control" id="email" name="email" type="email"
-																																								placeholder="Enter your email..." data-sb-validations="required,email" />
+																																								placeholder="Enter your email..." data-sb-validations="required,email"  required/>
 																																				<label for="email">Email address</label>
-																																				<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.
+																																				<div class="invalid-feedback" data-sb-feedback="email:required" >An email is required.
 																																				</div>
 																																				<div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
 																																</div>
 																																<div class="form-floating">
-																																				<input class="form-control" id="phone" name="phoneno" type="tel"
-																																								placeholder="Enter your phone number..." data-sb-validations="required" />
+																																				<input class="form-control" id="phone" name="phoneno" type="number"
+																																								placeholder="Enter your phone number..." data-sb-validations="required"  required />
 																																				<label for="phone">Phone Number</label>
 																																				<div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
 																																								required.</div>
 																																</div>
 																																<div class="form-floating">
 																																				<textarea class="form-control" id="message" name="message" placeholder="Enter your message here..."
-                                        style="height: 12rem" data-sb-validations="required"></textarea>
+                                        style="height: 12rem" data-sb-validations="required" required ></textarea>
 																																				<label for="message">Message</label>
-																																				<div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
+																																				<div class="invalid-feedback" data-sb-feedback="message:required" >A message is required.
 																																				</div>
 																																</div>
 																																<br />
