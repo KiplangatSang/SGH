@@ -13,7 +13,7 @@
                         <div class="sub-heading d-flex justify-content-center m-1">
                             <h5>{{ $post['post']->post_subtitle }}</h5>
                         </div>
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center mx-auto">
                             @if ($post['post_top_image'])
                             {{-- {{dd($post['post_top_image'])}} --}}
                             @foreach ($post['post_top_image'] as $image)

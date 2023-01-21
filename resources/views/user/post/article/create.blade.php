@@ -1,28 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row m-1">
-    <div class="col col-md-4">
-        <div class="tile">
+<div class="row m-1  tile ">
+    <div class="col col-md-6 col-xl-4">
+        <div class="">
             <div class="tile-title">Articles</div>
             <div class="tile-body">
                 <h3 class="display-5 text-success"><small>{{ auth()->user()->name }}</small></h3>
                 <h6><small>{{ auth()->user()->email }}</small> </h6>
                 <hr>
                 <div class="col">
-                    <div class="tile">
+                    <div class="">
                         <div class="tile-body">
                             <h3>Title images</h3>
                             @if (session('image_title'))
-                            {{-- {{ dd(session('images'))}} --}}
                             @foreach (session('image_title') as $key => $image)
                             <div class="row m-1">
                                 <div class="col-md-2 icon m-1">
                                     <img src="{{ $image }}" alt="title image" width="35" height="35">
                                 </div>
-                                <input type="text" value="{{ $image }} " id="imageUrlInput{{ $key }}" class="disabled">
-
-                                <button class="btn btn-secondary ml-2" onclick="copyImageUrl('imageUrlInput'+@json($key),'imageUrlBtn'+@json($key))" id="imageUrlBtn{{ $key }}">Copy</button>
+                                <input type="text" value="{{ $image }} " id="imageUrlInput{{ '-1' }}" class="disabled">
+                       
+                                <button class="btn btn-secondary ml-2" onclick="copyImageUrl('imageUrlInput-1','imageUrlBtn-1')" id="imageUrlBtn-1">Copy</button>
                             </div>
                             @endforeach
                             @endif
