@@ -15,7 +15,7 @@
 																												<!-- Post preview-->
 
 																												<div class="post-preview">
-																																<a href="/{{ $post->id }}">
+																																<a href="/{{ $post->post_id }}">
 																																				<h2 class="post-title">{{ $post->post_title }}</h2>
 																																				<h3 class="post-subtitle">{!! $post->post_subtitle !!}</h3>
 
