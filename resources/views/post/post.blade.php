@@ -45,7 +45,7 @@
     <!-- Post Content-->
     <article class="mb-2 ">
         <div class="container-fluid row">
-                <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="col-md-6 col-lg-6 col-xl-6 bg-red">
                     <p>{!! $post['post']->post_body !!}</p>
                     <p>
                         <small>Story writen by
