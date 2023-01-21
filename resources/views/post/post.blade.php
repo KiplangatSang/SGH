@@ -10,13 +10,13 @@
                         <div class="d-flex justify-content-center m-2">
                             <h1>{{ $post['post']->post_title }}</h1>
                         </div>
-                        <div class="sub-heading d-flex justify-content-center m-1">
+                        {{--  <div class="sub-heading d-flex justify-content-center m-1">
                             <h5>{{ $post['post']->post_subtitle }}</h5>
-                        </div>
+                        </div>  --}}
                         <div class="row d-flex justify-content-center mx-auto">
                             @if ($post['post_top_image'])
                             @foreach ($post['post_top_image'] as $image)
-                            <div class="col-md-6 col-xl d-flex justify-content-center m-1">
+                            <div class="col-md-6 col-xl-3 d-flex justify-content-center m-1">
                                 <img src="{{ $image }}" alt="Capture Image" class="p-1 d-flex w-100 img-thumbnail rounded">
                             </div>
                             @endforeach
@@ -43,10 +43,10 @@
         </div>
     </header>
     <!-- Post Content-->
-    <article class="mb-2 bg-white">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+    <article class="mb-2 ">
+        <div class="container-fluid row">
+           
+                <div class="col-md col-lg col-xl">
                     <p>{!! $post['post']->post_body !!}</p>
                     <p>
                         <small>Story writen by
@@ -58,10 +58,10 @@
                             @endif
                              </p>
                 </div>
-                <div class="col-md-2 col-lg-4 col-xl-3">
+                <div class="col-md-2 col-lg-3 col-xl-3 ">
                     <hr>
-                    @if (count($post['newposts']) > 1)
-                    <h3 class="text-info">Recommended for you</h3>
+                    @if (count($post['newposts']) > 0)
+                    <h5 class="text-info">Recommended for you</h5>
                     @foreach ($post['newposts'] as $recomended)
                     <!-- Post preview-->
                     {{-- recomended --}}
@@ -73,10 +73,12 @@
                                 @if ($recomended['post_top_image'] )
                                 @if (!empty($recomended['post_top_image']))
 
-                                @foreach ($recomended->post_top_image as $image)
-                                <div class="col">
-                                    <img src="{{ $image }}" alt="Capture Image" class="capture_image p-1 m-1">
-                                </div>
+                                @foreach ($recomended->post_top_image as $key=> $image)
+                               @if ( $key<3)
+                               <div class="col">
+                                <img src="{{ $image }}" alt="Capture Image" class="w-100 img-thumbnail rounded p-1 m-1">
+                            </div>
+                               @endif
                                 @endforeach
                                 @endif
 
@@ -89,7 +91,6 @@
                                     {{ $recomended->created_at->format('D M Y  H:II') }}</small>
                             </h6>
                         </a>
-
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
@@ -116,8 +117,9 @@
                     </div>
 
                 </div>
-            </div>
+                
         </div>
+        <div class="row justify-content-center"></div>
     </article>
 </div>
 @endsection

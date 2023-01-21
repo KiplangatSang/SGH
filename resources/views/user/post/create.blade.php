@@ -27,15 +27,12 @@
                                 <button class="btn btn-secondary ml-2" onclick="copyImageUrl('imageUrlInput'+@json($image->id),'imageUrlBtn'+@json($image->id))" id="imageUrlBtn{{ $image->id }}">Copy</button>
                             </div>
                             @endforeach
-
-
-
                         </div>
                         <div class="tile-body">
                             <p>Drag and drop here.</p>
                             <form class="text-center dropzone " method="POST" enctype="multipart/form-data" action="/post/image/store/1" id="image-upload">
                                 @csrf
-                                <div class="dz-message" name="images">Drop files here or click to upload<br>
+                                <div class="dz-message" name="images">Drop the files here or click to upload<br>
 
                                     <small class="text-info">()</small>
                                 </div>

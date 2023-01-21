@@ -56,10 +56,6 @@ class PostController extends Controller
         $postdata['category'] = $category;
         $postdata['top_images'] = $top_images;
 
-
-
-
-
         return view('user.post.create', compact('postdata'));
     }
 
@@ -126,6 +122,7 @@ class PostController extends Controller
         $request->validate([
             'post_category' => 'required',
             'post_title' => 'required',
+            'post_subtitle' => 'required',
 
         ]);
 
@@ -325,10 +322,12 @@ class PostController extends Controller
             if (!$request->post_body) {
 
                 return redirect('/user/post/move_to_editor/' . $post_id)->with('success', 'Congracts!! now work on your Article');
+            }else{
+                session()->flush('image_title');
+                session()->flush('images');
+                return redirect('/user/post/index')->with('success', 'Post Uploaded');
             }
-
-
-            return redirect('/user/post/index')->with('success', 'Post Uploaded');
+          
         } catch (Exception $e) {
             return back()->with('message', $e->getMessage());
         }

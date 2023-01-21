@@ -19,9 +19,8 @@
                                 <div class="col-md-2 icon m-1">
                                     <img src="{{ $image }}" alt="title image" width="35" height="35">
                                 </div>
-                                <input type="text" value="{{ $image }} " id="imageUrlInput{{ '-1' }}" class="disabled">
-                       
-                                <button class="btn btn-secondary ml-2" onclick="copyImageUrl('imageUrlInput-1','imageUrlBtn-1')" id="imageUrlBtn-1">Copy</button>
+                                <input type="text" value="{{ $image }} " id="imageUrlInput-{{$key }}" class="disabled">
+                                <button class="btn btn-secondary ml-2" onclick="copyImageUrl('imageUrlInput-'+@json($key),'imageUrlBtn-'+@json($key))" id="imageUrlBtn-{{$key}}">Copy</button>
                             </div>
                             @endforeach
                             @endif

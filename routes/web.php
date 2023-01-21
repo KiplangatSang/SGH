@@ -103,16 +103,7 @@ Route::get('/{post_id}', [ClientPostController::class, 'show']);
 Route::get('/articles/contact', function () {
     return view('post.contact');
 });
-Route::get('/articles/tech', function () {
-    $request = new Request([
-        'site' => "tech",
-    ]);
 
-    $siteVisit = new SiteVisitController();
-    $siteVisit->store($request);
-
-    return view('post.tech');
-});
 Route::get('/articles/tech',[TechCotroller::class,'index']);
 Route::get('/articles/sports',[SportController::class,'index']);
 Route::get('/articles/poems',[PoemController::class,'index']);

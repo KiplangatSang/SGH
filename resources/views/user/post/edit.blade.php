@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-				<div class="row m-1">
+				<div class=" tile row m-1">
 								<div class="col col-md-4">
 												<div class="tile">
 																<div class="tile-title">Articles</div>
@@ -12,24 +12,23 @@
 																				<div class="col">
 																								<h6> Upload Images or Videos to be used in the blog here then refresh the page to get their urls
 																								</h6>
-																								<div class="tile">
+																								<div class="">
 																												<div class="tile-title-w-btn">
 																																<h3 class="title">Drag and drop here </h3>
 																												</div>
 																												<div class="tile-body">
 																																@if (session('images'))
-																																				{{-- {{ dd(session('images'))}} --}}
 																																				@foreach (session('images') as $key => $image)
 																																								<div class="row m-1">
 																																												<div class="col-md-2 icon m-1">
 																																																<img src="{{ $image }}" alt="title image" width="35" height="35">
 																																												</div>
 																																												<input type="text" value="{{ $image }} "
-																																																id="imageUrlInput{{ $key }}" class="disabled">
+																																																id="imageUrlInput-{{ $key }}" class="disabled">
 
 																																												<button class="btn btn-secondary ml-2"
-																																																onclick="copyImageUrl('imageUrlInput'+@json($key),'imageUrlBtn'+@json($key))"
-																																																id="imageUrlBtn{{ $key }}">Copy</button>
+																																																onclick="copyImageUrl('imageUrlInput-'+@json($key),'imageUrlBtn-'+@json($key))"
+																																																id="imageUrlBtn-{{ $key }}">Copy</button>
 																																								</div>
 																																				@endforeach
 																																@endif
@@ -105,7 +104,7 @@
 
 
 																@error('post_top_image')
-																				<span class="invalid-feedback bg-white p-1" role="alert">
+																				<span class="invalid-feedback p-1" role="alert">
 																								<strong>{{ $message }}</strong>
 																				</span>
 																@enderror
@@ -117,8 +116,8 @@
 																@csrf
 
 																<div class="form-group ">
-																				<label class="text-white" for="post_category">What is the Category of your article</label>
-																				<h6 class="text-white"><small id="post_title_help" class="form-text text-light">This will determine
+																				<label class="text-dark" for="post_category">What is the Category of your article</label>
+																				<h6 class="text-dark"><small id="post_title_help" class="form-text text-dark">This will determine
 																												where your article will be placed</small></h6>
 																				<select class="form-control  @error('post_category') is-invalid @enderror" name="post_category">
 																								<option value="{{ $postdata['post']->post_category }}" selected>
@@ -130,7 +129,7 @@
 																				</select>
 
 																				@error('post_category')
-																								<span class="invalid-feedback bg-white p-1" role="alert">
+																								<span class="invalid-feedback p-1" role="alert">
 																												<strong>{{ $message }}</strong>
 																								</span>
 																				@enderror
@@ -139,40 +138,41 @@
 
 																</div>
 																<div class="form-group">
-																				<label class="text-white display-6" for="post_subtitle">What is the Title of your article</label>
-																				<h6 class="text-white"><small id="article_title_help" class="form-text text-light">This will be
+																				<label class="text-dark display-6" for="post_subtitle">What is the Title of your article</label>
+																				<h6 class="text-dark"><small id="article_title_help" class="form-text text-dark">This will be
 																												visible to people who visit
 																												your site</small></h6>
-																				<input type="heading" name="post_subtitle"
-																								class="form-control @error('post_subtitle') is-invalid @enderror" id="post_subtitle"
-																								aria-describedby="emailHelp" placeholder="Enter the Title of your article"
-																								value="{{ $postdata['post']->post_subtitle }}">
-																				@error('post_subtitle')
-																								<span class="invalid-feedback bg-white p-1" role="alert">
-																												<strong>{{ $message }}</strong>
-																								</span>
-																				@enderror
 
-																</div>
-
-																<div class="form-group">
-																				<label class="text-white display-6" for="post_title">What is the Subtitle of your article</label>
-																				<h6 class="text-white"><small id="article_title_help" class="form-text text-light">This will be
-																												visible below the title</small></h6>
-																				<input type="heading" name="post_title" class="form-control @error('post_title') is-invalid @enderror"
-																								id="post_title" aria-describedby="emailHelp" placeholder="Enter the Title of your article"
+																												<input type="heading" name="post_title" class="form-control @error('post_title') is-invalid @enderror"
+																								id="post_title" aria-describedby="emailHelp" placeholder="Enter the title of your article"
 																								value="{{ $postdata['post']->post_title }}">
 																				@error('post_title')
-																								<span class="invalid-feedback bg-white p-1" role="alert">
+																								<span class="invalid-feedback  p-1" role="alert">
 																												<strong>{{ $message }}</strong>
 																								</span>
 																				@enderror
+																				
 
+																</div>
+																<div class="form-group">
+																				<label class="text-dark display-6" for="post_title">What is the Subtitle of your article</label>
+																				<h6 class="text-dark"><small id="article_title_help" class="form-text text-dark">This will be
+																												visible below the title</small></h6>
+																				
+																												<input type="heading" name="post_subtitle"
+																												class="form-control @error('post_subtitle') is-invalid @enderror" id="post_subtitle"
+																												aria-describedby="emailHelp" placeholder="Enter the subtitle of your article"
+																												value="{{ $postdata['post']->post_subtitle }}">
+																								@error('post_subtitle')
+																												<span class="invalid-feedback p-1" role="alert">
+																																<strong>{{ $message }}</strong>
+																												</span>
+																								@enderror
 																</div>
 
 																<div class="form-group" id="trackingDiv"></div>
 																<div class="form-group">
-																				<label class="text-white" for="exampleFormControlTextarea1">Create Your Article</label>
+																				<label class="text-dark" for="exampleFormControlTextarea1">Create Your Article</label>
 																				{{-- <textarea name="post_body" class="textarea form-control @error('post_body') is-invalid @enderror ckeditor"
                     rows="10">{{ old('post_body') }}</textarea>
 																@error('post_body')
