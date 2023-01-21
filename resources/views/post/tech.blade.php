@@ -8,6 +8,7 @@
 								<!-- Main Content-->
 								<div class="container">
 												<div class="row gx-4 gx-lg-5 ">
+													@if ($techdata['posts'])
 																<div class="col-md-8 col-lg-8 col-xl-8">
 																				@foreach ($techdata['posts'] as $post)
 																								<!-- Post preview-->
@@ -49,6 +50,7 @@
 																				<!-- Pager-->
 
 																</div>
+																@endif
 																<div class="col-md-4 col-lg-4 col-xl-4">
 																				<div class="col-md-2 col-xl-2 p-1">
 																								<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5005358454303953"
@@ -60,7 +62,7 @@
 																								    (adsbygoogle = window.adsbygoogle || []).push({});
 																								</script>
 																				</div>
-																				@if (count($techdata['recomended']) > 1)
+																				@if (count($techdata['recomended']) > 0)
 																								<h3 class="text-info">Recommended for you</h3>
 																								@foreach ($techdata['recomended'] as $recomended)
 																												<!-- Post preview-->

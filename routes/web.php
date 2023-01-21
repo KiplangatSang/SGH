@@ -11,10 +11,16 @@ use App\Http\Controllers\Admin\Users\AccountSuspensionController;
 use App\Http\Controllers\Client\ResponseController;
 use App\Http\Controllers\ClientPostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Posts\BusinessController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Post\PostImageController;
+use App\Http\Controllers\Posts\NewsCotroller;
+use App\Http\Controllers\Posts\PoemController;
+use App\Http\Controllers\Posts\SportController;
+use App\Http\Controllers\Posts\TechCotroller;
 use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\SiteVisitController;
+use App\Posts\Posts;
 use App\SiteVisits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,10 +50,10 @@ Route::get('/email/verify', function () {
 
 #The Email Verification Handler
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
- 
+
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
- 
+
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
@@ -107,46 +113,11 @@ Route::get('/articles/tech', function () {
 
     return view('post.tech');
 });
-Route::get('/articles/sports', function () {
-    $request = new Request([
-        'site' => "sports",
-    ]);
-
-    $siteVisit = new SiteVisitController();
-    $siteVisit->store($request);
-
-    return view('post.sports');
-});
-Route::get('/articles/poems', function () {
-    $request = new Request([
-        'site' => "poems",
-    ]);
-
-    $siteVisit = new SiteVisitController();
-    $siteVisit->store($request);
-
-    return view('post.poems');
-});
-Route::get('/articles/news', function () {
-    $request = new Request([
-        'site' => "news",
-    ]);
-
-    $siteVisit = new SiteVisitController();
-    $siteVisit->store($request);
-
-    return view('post.news');
-});
-Route::get('/articles/business', function () {
-    $request = new Request([
-        'site' => "business",
-    ]);
-
-    $siteVisit = new SiteVisitController();
-    $siteVisit->store($request);
-
-    return view('post.business');
-});
+Route::get('/articles/tech',[TechCotroller::class,'index']);
+Route::get('/articles/sports',[SportController::class,'index']);
+Route::get('/articles/poems',[PoemController::class,'index']);
+Route::get('/articles/news',[NewsCotroller::class,'index']);
+Route::get('/articles/business', [BusinessController::class,'index']);
 Route::get('/articles/articles', function () {
     return view('post.articles');
 });

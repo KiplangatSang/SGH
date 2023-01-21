@@ -38,12 +38,12 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer(['admin.*', ], UsersComposer::class);
         View::composer(['post.*', ], ArticleComposer::class);
-        View::composer(['post.*', ], BusinessComposer::class);
+        // View::composer(['post.*', ], BusinessComposer::class);
         View::composer(['post.*', ], PoemComposer::class);
         View::composer(['post.*', ], SportComposer::class);
         View::composer(['post.*', ], TechComposer::class);
         View::composer(['post.*', ], PostsComposer::class);
-        View::composer(['post.*', ], NewsComposer::class);
+        // View::composer(['post.*', ], NewsComposer::class);
 
     }
 }

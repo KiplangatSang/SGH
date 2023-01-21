@@ -13,33 +13,33 @@ class PoemComposer
 {
     public function compose(View $view)
     {
-        $posts = Posts::where('post_category','Poems')->orderBy('created_at','DESC')->simplePaginate(20);
-        $recomended = Posts::inRandomOrder()->simplePaginate(7);;
+        // $posts = Posts::where('post_category','Poems')->orderBy('created_at','DESC')->simplePaginate(20);
+        // $recomended = Posts::inRandomOrder()->simplePaginate(7);;
 
-        foreach($posts as $post){
+        // foreach($posts as $post){
 
-            $post['artist'] =$post->postable()->first()->get('id',
-            'name',
-            'email');
+        //     $post['artist'] =$post->postable()->first()->get('id',
+        //     'name',
+        //     'email');
 
-            $post->post_top_image = json_decode( $post->post_top_image);
-        }
-        foreach($recomended as $post){
+        //     $post->post_top_image = json_decode( $post->post_top_image);
+        // }
+        // foreach($recomended as $post){
 
-            $post['artist'] =$post->postable()->first()->get('id',
-            'name',
-            'email');
+        //     $post['artist'] =$post->postable()->first()->get('id',
+        //     'name',
+        //     'email');
 
-            $post->post_top_image = json_decode( $post->post_top_image);
-        }
+        //     $post->post_top_image = json_decode( $post->post_top_image);
+        // }
 
-        $data = array();
-        $data['posts'] = $posts;
-        $data['recomended'] = $recomended;
+        // $data = array();
+        // $data['posts'] = $posts;
+        // $data['recomended'] = $recomended;
 
 
 
-        $view->with('poemdata', $data);
+        // $view->with('poemdata', $data);
     }
 
 }
