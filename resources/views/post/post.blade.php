@@ -17,7 +17,7 @@
                             @if ($post['post_top_image'])
                             @foreach ($post['post_top_image'] as $image)
                             <div class="col-md-6 col-xl d-flex justify-content-center m-1">
-                                <img src="{{ $image }}" alt="Capture Image" class="p-1 d-flex w-100 ">
+                                <img src="{{ $image }}" alt="Capture Image" class="p-1 d-flex w-100 img-thumbnail rounded">
                             </div>
                             @endforeach
                             @endif
