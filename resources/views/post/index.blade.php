@@ -14,12 +14,12 @@
                         <h2 class="post-title">{{ $post->post_title }}</h2>
                         <h3 class="post-subtitle">{!! $post->post_subtitle !!}</h3>
 
-                        <div class="row d-flex justify-content-center">
+                        <div class="row">
                             @if ($post['post_top_image'] != null)
                             {{-- {{dd($post['post_top_image'])}} --}}
 
                             @foreach ($post['post_top_image'] as $image)
-                                <div class="col-md-6 col-xl-3 d-flex justify-content-center m-1">
+                                <div class="col-md-6 col-xl-3 d-flex  m-1">
                                     <img src="{{ $image }}" alt="Capture Image" class="p-1 d-flex  img-thumbnail rounded">
                                 </div>
                             @endforeach
