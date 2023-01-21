@@ -3,8 +3,8 @@
 <div>
     <!-- Page Header-->
     <header class="masthead ">
-        <div class="container position-relative  px-lg-3 ">
-            <div class="row  gx-lg-5 justify-content-center">
+        <div class="container position-relative  px-lg ">
+            <div class="row  gx-lg justify-content-center">
                 <div class="col-md-10 col-xl-10 ">
                     <div class="row ">
                         <div class="d-flex justify-content-center m-2">
