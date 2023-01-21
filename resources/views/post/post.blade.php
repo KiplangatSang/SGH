@@ -52,9 +52,12 @@
                     <p>
                         <small>Story writen by
                             <a href="/artist/post/{{ $post['post']->postable()->first()->id }}">{{ $post['post']->postable()->first()->name }}</a>
-                            &middot; Images by
+                            &middot; 
+                            @if ($post['post_top_image'])
+                            Images by
                             <a href="/artist/post/{{ $post['post']->postable()->first()->id }}">{{ $post['post']->postable()->first()->name }}</a></small>
-                    </p>
+                            @endif
+                             </p>
                 </div>
                 <div class="col-md-2 col-lg-4 col-xl-3">
                     <hr>
